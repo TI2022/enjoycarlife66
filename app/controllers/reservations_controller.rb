@@ -233,9 +233,9 @@ class ReservationsController < ApplicationController
             title_for_staff: title_for_staff_comment
           )
         end
-        flash[:success] = "予約を編集しました。"
-        redirect_to confirm_reservation_reservations_url
       end
+        flash[:success] = "予約を編集しました。"
+        redirect_to reservation_management_reservations_url
     else
       flash[:danger] = "編集に失敗しました。"
       redirect_to edit_reserve_reservation_url(@reservation)

@@ -10,6 +10,7 @@ class Reservation < ApplicationRecord
   validate :two_hours_later_on_the_day, on: :registration # お客さんのみ新規登録は当日の２時間後以降しか登録できない
   validate :reservations_can_be_made_up_to_10_days_in_advance, on: :registration  #お客さんのみ新規予約登録は10日後までできる
   validate :in_working_time
+  validate :start_time_not_sunday
   
   def two_hours_later_on_the_day
     now = Time.current
@@ -24,6 +25,10 @@ class Reservation < ApplicationRecord
   def in_working_time
     errors.add(:start_time, 'は、19時以前の日時を入力して下さい。') if start_time.hour > 19
     errors.add(:start_time, 'は、10時以降の日時を入力して下さい。') if start_time.hour < 10
+  end
+
+  def start_time_not_sunday
+    errors.add(:start_time, "は日曜日を選択できません") if start_time.sunday?
   end
 
   enum status: {
