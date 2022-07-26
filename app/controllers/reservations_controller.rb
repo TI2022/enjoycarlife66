@@ -108,9 +108,10 @@ class ReservationsController < ApplicationController
 
   def new
     @first_time_guests = Reservation.where(guest_id: current_user.id).where(cancel_flag: 0)
-    from  = Time.current.at_end_of_day
-    to    = (from - 2.month).at_end_of_day
-    @guests_within_two_weeks = Reservation.where(guest_id: current_user.id).where(cancel_flag: 0).where(start_time: to...from)
+    now = Time.current
+    from = now.ago(2.month).at_beginning_of_day
+    to = now.since(10.days).at_end_of_day
+    @guests_within_two_weeks = Reservation.where(guest_id: current_user.id).where(cancel_flag: 0).where(start_time: from...to)
     menu = Menu.where(reserve_flag: 0) # 予約画面に表示するメニューはreserve_flag: 0のものだけ。
     @first_menu = menu.where(category_title_number: "1") # 初回メニュー
     @change_nail_menu = menu.where(category_title_number: "8") # ２ヶ月以内来店巻き爪補正単品メニュー
@@ -159,9 +160,9 @@ class ReservationsController < ApplicationController
     if @reservation.save(context: :registration) #ゲストが新規予約する時だけ予約時間の範囲を限定する。
       user = User.find(@reservation.guest_id)
       #申込したゲストへのメール
-      UserMailer.request_reservation(user, @reservation).deliver_now
+      # UserMailer.request_reservation(user, @reservation).deliver_now
       #スタッフへのメール
-      UserMailer.request_reservation_staff(user, @reservation).deliver_now
+      # UserMailer.request_reservation_staff(user, @reservation).deliver_now
       flash[:warning] = "お客様の仮予約が完了しました。承認されるまでお待ちください。"
       redirect_to reservations_url
     end
@@ -177,7 +178,7 @@ class ReservationsController < ApplicationController
     @reservation.update(status: :on_reserve, title_for_guest: "予約確定", title_for_staff: title_for_staff_comment)
     user = User.find(@reservation.guest_id)
     #ゲストへの予約確定メール
-    UserMailer.reservation_confirm(user, @reservation).deliver_now
+    # UserMailer.reservation_confirm(user, @reservation).deliver_now
     flash[:success] = "予約確定をしました。"
     redirect_to confirm_reservation_reservations_url
   end

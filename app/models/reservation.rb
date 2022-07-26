@@ -19,7 +19,7 @@ class Reservation < ApplicationRecord
   end
 
   def reservations_can_be_made_up_to_10_days_in_advance
-    errors.add(:start_time, 'は、10日後まで予約ができます。') if start_time > Date.today + 10
+    errors.add(:start_time, 'は、10日後まで予約ができます。') if start_time > Time.current.since(10.days).at_end_of_day
   end
 
   def in_working_time
