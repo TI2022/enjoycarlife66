@@ -8,5 +8,4 @@ class Store < ApplicationRecord
   validates :email, length: { maximum: 50 }
   validates :line_id, length: { maximum: 50 }
   validates :address, length: { maximum: 100 }
-  validates :working_staff, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 10000 }
 end
