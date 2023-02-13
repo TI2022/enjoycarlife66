@@ -404,7 +404,6 @@ body {
 .item-form-wrapper,
 .event-form-wrapper,
 .store-index-container,
-.store-show-wrapper,
 .store-form-wrapper {
   display: grid; /* カードの横並び */
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* gridの設定 */
@@ -415,7 +414,6 @@ body {
 
 .store-index-body {
   width: 100%;
-  max-width: 300px;
   margin: 0 auto;
   background-color: #f1f1f1;
   border: 1px solid #dadada;
@@ -430,7 +428,6 @@ body {
 .store-show-image,
 .store_form_image {
   width: 100%;
-  max-width: 500px;
 }
 
 .item-form-button,

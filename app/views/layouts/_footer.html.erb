@@ -14,17 +14,19 @@
       </button>
       <div class="dropdown-menu">
         <% if staff_signed_in? %>
+        <!--
           <%= link_to '申請予約承認', confirm_reservation_reservations_path, 'data-turbolinks': false, class: 'dropdown-item link-black' %>
           <%= link_to '予約管理', reservation_management_reservations_path, 'data-turbolinks': false, class: 'dropdown-item link-black' %>
-          <%= link_to 'お知らせ記事一覧', notifications_path, 'data-turbolinks': false, class: 'dropdown-item link-black' %>
           <%= link_to '未決済商品一覧', orders_path, class: 'dropdown-item link-black' %>
           <%= link_to '未決済イベント一覧', event_orders_path, class: 'dropdown-item link-black' %>
-          <%= link_to 'お客様一覧', users_index_path, class: 'dropdown-item link-black' %>
-          <%= link_to 'スタッフ一覧', staffs_index_path, class: 'dropdown-item link-black' %>
           <%= link_to 'ご注文発送一覧', purchase_records_path, class: "dropdown-item link-red" %>
           <%= link_to '施術メニュー管理', menus_path, class: 'dropdown-item link-black' %>
+        -->
+          <%= link_to 'お客様一覧', users_index_path, class: 'dropdown-item link-black' %>
+          <%= link_to 'スタッフ一覧', staffs_index_path, class: 'dropdown-item link-black' %>
           <%= link_to 'トップページ管理', tops_path, class: 'dropdown-item link-black' %>
-          <%= link_to 'スタッフシフト管理', shifts_path, class: 'dropdown-item link-black' %>
+          <%= link_to '車両管理', stores_path, class: 'dropdown-item link-black' %>
+          <%= link_to 'お知らせ記事一覧', notifications_path, 'data-turbolinks': false, class: 'dropdown-item link-black' %>
           <div class="dropdown-divider"></div>
           <%= link_to 'ログアウト', destroy_staff_session_path, method: :delete, class: 'dropdown-item link-black' %>
         <% else %>

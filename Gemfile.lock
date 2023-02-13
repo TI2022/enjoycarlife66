@@ -190,6 +190,7 @@ GEM
     mime-types-data (3.2021.1115)
     mini_magick (4.11.0)
     mini_mime (1.1.2)
+    mini_portile2 (2.6.1)
     minitest (5.15.0)
     msgpack (1.4.2)
     multi_json (1.15.0)
@@ -197,7 +198,8 @@ GEM
     multipart-post (2.1.1)
     netrc (0.11.0)
     nio4r (2.5.8)
-    nokogiri (1.12.5-x86_64-linux)
+    nokogiri (1.12.5)
+      mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
     oauth2 (1.4.7)
       faraday (>= 0.8, < 2.0)
@@ -361,6 +363,7 @@ GEM
     zeitwerk (2.5.1)
 
 PLATFORMS
+  aarch64-linux
   x86_64-linux
 
 DEPENDENCIES

@@ -1,13 +1,8 @@
-<p>
-  <%= link_to 'ホーム', root_url, class: "link-gray" %>
-  ＞ 店舗のご案内
-</p>
-
 <div class="container">
   <div class="right">
     <% if staff_signed_in? %>
       <p>スタッフ専用</p>
-      <%= link_to "新規店舗の登録", new_store_path, class: "btn btn-sm btn-outline-dark" %>
+      <%= link_to "新規車両の登録", new_store_path, class: "btn btn-sm btn-outline-dark" %>
     <% end %>
   </div>
 

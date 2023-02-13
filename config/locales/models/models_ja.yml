@@ -8,7 +8,7 @@ ja:
       event_order: 注文
       menu: メニュー
       reservation: 予約
-      store: 店舗
+      store: 車両
       review: 口コミ
       review_answer: 口コミ返信
       shift: シフト
@@ -115,7 +115,7 @@ ja:
         guest_id: 予約ユーザー
         staff_id: スタッフ
       store:
-        name: 店舗名
+        name: 車両名
         address: 住所
         phone: 電話
         email: メール

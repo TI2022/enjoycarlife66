@@ -1,7 +1,8 @@
 <header class='header DownMove'>
   <div class="header-logo">
-    <%= link_to image_tag("/logo1.jpg", height: '100%'), root_path, 'data-turbolinks': false %>
+    <%= link_to image_tag("/Honda_logo.jpg", height: '100%'), root_path, 'data-turbolinks': false %>
   </div>
+
   <div class="pc-guest-nav">
     <button type="button" class="btn btn-sm btn-outline-dark dropdown-toggle"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -22,6 +23,7 @@
         <%= link_to '新規登録', new_user_registration_path, class: 'dropdown-item' %>
       <% end %>
     </div>
+  <!--
     <% if !user_signed_in? %>
       <%= link_to image_tag('/payment_history.png', width: 30), new_user_session_path %>
       <%= link_to '購入履歴', new_user_session_path, class: "btn btn-sm btn-outline-dark" %>
@@ -42,8 +44,9 @@
       <% end %>
       <%= link_to 'カート', carts_path(current_user), class: "btn btn-sm btn-warning" %>
     <% end %>
+  -->
   </div>
-
+<!--
   <div class="header-menu row">
     <div class="border-r col-2"><%= link_to 'ご予約', reservations_path, class: "link-lightgray" %></div>
     <div class="border-r col-2"><%= link_to '店舗のご案内', stores_path, class: "link-lightgray" %></div>
@@ -160,4 +163,5 @@
     <div id="mask"></div>
 
   </div>
+  -->
 </header>

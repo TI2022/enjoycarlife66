@@ -4,74 +4,14 @@
 </p>
 
 <div class="container">
-  <div>
-    <h1><%= l(Date.today, format: :long) %></h1>
-  </div>
-
-  <div class="staff-account-wrapper">
-    
-    <div class='row staff-account-cards'>
-      <div class='card border-secondary col-sm-5'>
-        <div class='card-body center'>
-          <%= link_to '申請予約承認', confirm_reservation_reservations_path, class: "link-black", 'data-turbolinks': false %>
-        </div>
-      </div>
-      <div class='card border-secondary col-sm-5'>
-        <div class='card-body center'>
-          <%= link_to '予約管理', reservation_management_reservations_path, class: "link-black", 'data-turbolinks': false %>
-        </div>
-      </div>
-      <div class='card border-secondary col-sm-5'>
-        <div class='card-body center'>
-          <%= link_to 'お知らせ記事一覧', notifications_path, 'data-turbolinks': false, class: "link-black" %>
-        </div>
-      </div>
-      <div class='card border-secondary col-sm-5'>
-        <div class='card-body center'>
-          <%= link_to '未決済商品一覧', orders_path, class: "link-black" %>
-        </div>
-      </div>
-      <div class='card border-secondary col-sm-5'>
-        <div class='card-body center'>
-          <%= link_to '未決済イベント一覧', event_orders_path, class: "link-black" %>
-        </div>
-      </div>
-      <div class='card border-secondary col-sm-5'>
-        <div class='card-body center'>
-          <%= link_to 'お客様一覧', users_index_path, class: "link-black" %>
-        </div>
-      </div>
-      <div class='card border-secondary col-sm-5'>
-        <div class='card-body center'>
-          <%= link_to 'スタッフ一覧', staffs_index_path, class: "link-black" %>
-        </div>
-      </div>
-      <div class='card border-secondary col-sm-5'>
-        <div class='card-body center'>
-          <% if @unshipped_payments.present? %>
-            <%= link_to 'ご注文発送一覧[未発送あり]', purchase_records_path, class: "link-red" %>
-          <% else %>
-            <%= link_to 'ご注文発送一覧[全て発送済み]', purchase_records_path, class: "link-black" %>
-          <% end %>
-        </div>
-      </div>
-      <div class='card border-secondary col-sm-5'>
-        <div class='card-body center'>
-          <%= link_to '施術メニュー一覧', menus_path, 'data-turbolinks': false, class: "link-black" %>
-        </div>
-      </div>
-      <div class='card border-secondary col-sm-5'>
-        <div class='card-body center'>
-          <%= link_to 'トップページ管理', tops_path, class: "link-black" %>
-        </div>
-      </div>
-      <div class='card border-secondary col-sm-5'>
-        <div class='card-body center'>
-          <%= link_to 'シフト管理', shifts_path, class: "link-black" %>
-        </div>
-      </div>
-    </div>
-    
+  <div class="staff-account-wrapper mt-5">
+    <div>
+        <%= link_to 'トップページ管理', tops_path, class: "btn btn-primary mt-1" %>
+        <%= link_to '車両管理', stores_path, class: "btn btn-primary mt-1" %>
+        <%= link_to 'お客様一覧', users_index_path, class: 'btn btn-primary mt-1' %>
+        <%= link_to 'スタッフ一覧', staffs_index_path, class: 'btn btn-primary mt-1' %>
+        <%= link_to 'お知らせ記事一覧', notifications_path, 'data-turbolinks': false, class: 'btn btn-primary mt-1' %>
+    </div> 
     <div class="staff-info-table center">
       <table class="table">
         <thead class="table table-secondary center">

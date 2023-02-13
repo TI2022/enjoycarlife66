@@ -1,12 +1,12 @@
 <p>
   <%= link_to 'ホーム', root_url, class: "link-gray" %> ＞
-  <%= link_to '店舗のご案内', stores_path, class: "link-gray" %> ＞
+  <%= link_to '車両一覧', stores_path, class: "link-gray" %> ＞
   <%= @store.name %>
 </p>
 <p></p>
 
 <div class="container">
-  <div class="store-show-wrapper">
+  <div class="car-show-wrapper">
     
     <div class="store-show-image">
       <% if @store.image? %>
@@ -18,17 +18,9 @@
 
     <div>
       <ul>
-        <li>店舗名:</li>
+        <li>車両名:</li>
         <li><%= @store.name %></li>
         <p></p>
-        <% if current_staff %>
-          <% if @store.flagship_location == true %>
-            <li>旗艦店: はい</li>
-          <% else %>
-            <li>旗艦店: いいえ</li>
-          <% end %>
-          <p></p>
-        <% end %>
         <li>住所:</li>
         <li><%= @store.address %></li>
         <p></p>
@@ -43,11 +35,6 @@
           <li><%= @store.opening_time.strftime("%H:%M") %> から <%= @store.closing_time.strftime("%H:%M") %> まで</li>
         <% end %>
         <p></p>
-        <li>ラストオーダー:</li>
-        <% if @store.last_order_time.present? %>
-          <li><%= @store.last_order_time.strftime("%H:%M") %> まで受付</li>
-        <% end %>
-        <p></p>
       </ul>
     </div>
     
@@ -56,16 +43,11 @@
         <li>定休日:</li>
         <li><%= @store.non_business_day %></li>
         <p></p>
-        <li>稼働スタッフ数:</li>
-        <li><%= @store.working_staff %> 名</li>
-        <p></p>
         <li>店舗詳細:</li>
         <li><%= @store.description %></li>
         <p></p>
       </ul>
     </div>
-
-    <div><iframe src="<%= @store.google_map %>" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe></div>
 
   </div>
 </div>

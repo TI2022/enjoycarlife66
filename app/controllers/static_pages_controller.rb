@@ -4,6 +4,7 @@ class StaticPagesController < ApplicationController
   before_action :set_month, only: :top
 
   def top
+    @stores = Store.all.order(id: :asc)
     @shifts = Shift.all
     if current_user && !current_user.cart.present?
       cart = current_user.build_cart
