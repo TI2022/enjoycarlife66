@@ -42,6 +42,7 @@ gem 'quilljs-rails', :git => 'https://github.com/abhinavmathur/quilljs-rails.git
 gem 'spring'
 
 group :development, :test do
+  gem 'pg', '~> 1.1'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem 'factory_bot_rails'
