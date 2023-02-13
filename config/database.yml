@@ -7,25 +7,25 @@ default: &default
   password: postgres
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
-development:
-  <<: *default
-  database: product_register_development
-  password: postgres
+# development:
+#   <<: *default
+#   database: product_register_development
+#   password: postgres
 
-test:
-  <<: *default
-  database: product_register_test
-  password: postgres
+# test:
+#   <<: *default
+#   database: product_register_test
+#   password: postgres
 
-# for heroku deployment 以下の環境変数を追加
-production:
-  <<: *default
-# ローカルでproductionを検証する場合は、以下を追加
-# production環境で、development環境のDBに接続できる
-  # database: product_register_development
-# ローカルでproductionを検証する場合は、以下をコメントアウト
-  database: <%= ENV['APP_DATABASE'] %>
-  username: <%= ENV['APP_DATABASE_USERNAME'] %>
-  password: <%= ENV['APP_DATABASE_PASSWORD'] %>
-  host: <%= ENV['APP_DATABASE_HOST'] %>
-  secret_key_base: <%= ENV['SECRET_KEY_BASE'] %>  #for devise / credentials.yml.enc で確認できる
+# # for heroku deployment 以下の環境変数を追加
+# production:
+#   <<: *default
+# # ローカルでproductionを検証する場合は、以下を追加
+# # production環境で、development環境のDBに接続できる
+#   # database: product_register_development
+# # ローカルでproductionを検証する場合は、以下をコメントアウト
+#   database: <%= ENV['APP_DATABASE'] %>
+#   username: <%= ENV['APP_DATABASE_USERNAME'] %>
+#   password: <%= ENV['APP_DATABASE_PASSWORD'] %>
+#   host: <%= ENV['APP_DATABASE_HOST'] %>
+#   secret_key_base: <%= ENV['SECRET_KEY_BASE'] %>  #for devise / credentials.yml.enc で確認できる
