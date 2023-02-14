@@ -12,19 +12,16 @@
 
 ActiveRecord::Schema.define(version: 2022_02_10_034310) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "carts", force: :cascade do |t|
-    t.bigint "user_id"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
   create_table "event_orders", force: :cascade do |t|
-    t.bigint "cart_id"
-    t.bigint "event_id"
+    t.integer "cart_id"
+    t.integer "event_id"
     t.integer "quantity"
     t.datetime "paid_at"
     t.integer "payment_id"
@@ -103,8 +100,8 @@ ActiveRecord::Schema.define(version: 2022_02_10_034310) do
     t.string "title"
     t.string "body"
     t.boolean "display_flag", default: true
-    t.bigint "staff_id"
-    t.bigint "store_id"
+    t.integer "staff_id"
+    t.integer "store_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["staff_id"], name: "index_notifications_on_staff_id"
@@ -112,8 +109,8 @@ ActiveRecord::Schema.define(version: 2022_02_10_034310) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.bigint "cart_id"
-    t.bigint "item_id"
+    t.integer "cart_id"
+    t.integer "item_id"
     t.integer "quantity"
     t.datetime "paid_at"
     t.integer "payment_id"
@@ -129,7 +126,7 @@ ActiveRecord::Schema.define(version: 2022_02_10_034310) do
   end
 
   create_table "payments", force: :cascade do |t|
-    t.bigint "cart_id"
+    t.integer "cart_id"
     t.integer "subtotal"
     t.integer "tax"
     t.integer "shipping_fee"
@@ -173,7 +170,7 @@ ActiveRecord::Schema.define(version: 2022_02_10_034310) do
   end
 
   create_table "review_answers", force: :cascade do |t|
-    t.bigint "reservation_id", null: false
+    t.integer "reservation_id", null: false
     t.integer "review_id"
     t.integer "staff_id"
     t.integer "user_id"
@@ -184,8 +181,8 @@ ActiveRecord::Schema.define(version: 2022_02_10_034310) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "reservation_id", null: false
+    t.integer "user_id", null: false
+    t.integer "reservation_id", null: false
     t.string "title"
     t.text "content"
     t.integer "total_score"
@@ -218,7 +215,7 @@ ActiveRecord::Schema.define(version: 2022_02_10_034310) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "store_id", default: 1
+    t.integer "store_id", default: 1
     t.integer "authority"
     t.string "name"
     t.string "kana"
@@ -299,7 +296,7 @@ ActiveRecord::Schema.define(version: 2022_02_10_034310) do
     t.datetime "exit_date"
     t.boolean "flag", default: false, null: false
     t.integer "cart_id"
-    t.bigint "store_id", default: 1
+    t.integer "store_id", default: 1
     t.string "provider"
     t.string "uid"
     t.integer "postal_code"

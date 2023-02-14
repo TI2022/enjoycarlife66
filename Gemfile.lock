@@ -121,6 +121,8 @@ GEM
       devise (>= 4.8.0)
     devise-i18n-views (0.3.7)
     diff-lcs (1.5.0)
+    dockerfile-rails (1.0.14)
+      rails
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.8.1)
@@ -193,7 +195,7 @@ GEM
       net-protocol
     netrc (0.11.0)
     nio4r (2.5.8)
-    nokogiri (1.14.1)
+    nokogiri (1.14.2)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     oauth2 (2.0.9)
@@ -219,6 +221,7 @@ GEM
     orm_adapter (0.5.0)
     payjp (0.0.10)
       rest-client (~> 2.0)
+    pg (1.4.5)
     public_suffix (5.0.1)
     puma (5.6.5)
       nio4r (~> 2.0)
@@ -325,6 +328,8 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
+    sqlite3 (1.6.0)
+      mini_portile2 (~> 2.8.0)
     ssrf_filter (1.1.1)
     thor (1.2.1)
     tilt (2.0.11)
@@ -370,6 +375,7 @@ DEPENDENCIES
   devise
   devise-i18n
   devise-i18n-views
+  dockerfile-rails (>= 1.0)
   dotenv-rails
   enum_help
   factory_bot_rails
@@ -381,6 +387,7 @@ DEPENDENCIES
   omniauth-line
   omniauth-rails_csrf_protection
   payjp
+  pg (~> 1.1)
   puma (~> 5.0)
   quilljs-rails!
   rack-mini-profiler (~> 2.0)
@@ -391,6 +398,7 @@ DEPENDENCIES
   selenium-webdriver
   spring
   spring-commands-rspec
+  sqlite3 (~> 1.4)
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 4.1.0)

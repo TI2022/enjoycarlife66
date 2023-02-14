@@ -4,7 +4,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.4'
 
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
-gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 5.0'
@@ -42,7 +41,7 @@ gem 'quilljs-rails', :git => 'https://github.com/abhinavmathur/quilljs-rails.git
 gem 'spring'
 
 group :development, :test do
-  gem 'pg', '~> 1.1'
+  gem 'sqlite3', '~> 1.4'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem 'factory_bot_rails'
@@ -62,6 +61,9 @@ end
 
 group :production do
   # gem 'rails_12factor' # herokuで詳細なログを出す
+  gem 'pg', '~> 1.1'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem "dockerfile-rails", ">= 1.0", :group => :development
